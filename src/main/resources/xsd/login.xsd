@@ -1,0 +1,22 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:ns2="http://ocsplatform.mobifone.vn"
+           targetNamespace="http://ocsplatform.mobifone.vn">
+
+    <xs:element name="loginReq">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="username" type="xs:string"/>
+                <xs:element name="password" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="loginRes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="responseStatus" type="xs:string"/>
+                <xs:element name="description" type="xs:string"/>
+                <xs:element name="sessionID" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
