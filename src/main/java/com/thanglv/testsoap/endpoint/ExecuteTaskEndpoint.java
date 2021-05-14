@@ -28,7 +28,7 @@ public class ExecuteTaskEndpoint {
     @PayloadRoot(namespace = "http://ocsplatform.mobifone.vn", localPart = "executeTaskReq")
     @ResponsePayload
     public ExecuteTaskRes executeTask(@RequestPayload ExecuteTaskReq executeTaskReq, MessageContext messageContext) throws IOException, InterruptedException {
-        System.out.println("REQUEST EXECUTE TASK");
+//        System.out.println("REQUEST EXECUTE TASK");
         ExecuteTaskRes executeTaskRes = new ExecuteTaskRes();
 //        boolean isSessionValid = testService.isSessionValid(executeTaskReq.getSessionId());
 //        executeTaskRes.setSessionStatus(isSessionValid ? "SUCCESS REQUEST" : "FAILED REQUEST");

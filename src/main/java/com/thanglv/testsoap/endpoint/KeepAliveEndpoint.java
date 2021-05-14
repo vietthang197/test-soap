@@ -26,7 +26,7 @@ public class KeepAliveEndpoint {
     @PayloadRoot(namespace = "http://ocsplatform.mobifone.vn", localPart = "keepAliveReq")
     @ResponsePayload
     public KeepAliveRes keepAlive(@RequestPayload KeepAliveReq keepAliveReq, MessageContext messageContext) throws IOException, InterruptedException {
-        System.out.println("REQUEST KEEP ALIVE SESSIONID");
+//        System.out.println("REQUEST KEEP ALIVE SESSIONID");
         KeepAliveRes keepAlivekRes = new KeepAliveRes();
         boolean status = testService.keepAliveSession(keepAliveReq.getSessionIdKeep());
         keepAlivekRes.setSessionId(keepAliveReq.getSessionIdKeep());
