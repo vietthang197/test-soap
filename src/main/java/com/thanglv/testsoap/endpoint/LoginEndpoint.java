@@ -1,5 +1,7 @@
 package com.thanglv.testsoap.endpoint;
 
+import com.thanglv.testsoap.services.TestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.context.MessageContext;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -19,14 +21,24 @@ import java.util.UUID;
 @Endpoint
 public class LoginEndpoint {
 
+    @Autowired
+    private TestService testService;
+
     @PayloadRoot(namespace = "http://ocsplatform.mobifone.vn", localPart = "loginReq")
     @ResponsePayload
     public LoginRes login(@RequestPayload LoginReq loginReq, MessageContext messageContext) throws IOException {
         System.out.println("REQUEST GENERATE SESSIONID");
         LoginRes loginRes = new LoginRes();
-        loginRes.setResponseStatus("1");
-        loginRes.setDescription("SUCCESS");
-        loginRes.setSessionID(UUID.randomUUID().toString());
+
+        String session = testService.genSession();
+        if (session == null) {
+            loginRes.setResponseStatus("0");
+            loginRes.setDescription("MAX SESSION CREATED!");
+        } else {
+            loginRes.setResponseStatus("1");
+            loginRes.setDescription("SUCCESS");
+            loginRes.setSessionID(session);
+        }
         return loginRes;
     }
 }

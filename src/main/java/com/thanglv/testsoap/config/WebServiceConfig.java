@@ -60,9 +60,43 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         return wsdl11Definition;
     }
 
+    @Bean(name = "execute-task")
+    public DefaultWsdl11Definition executeTaskWsdl11Definition(XsdSchema executeTaskSchema) {
+        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+        wsdl11Definition.setResponseSuffix("Res");
+        wsdl11Definition.setRequestSuffix("Req");
+        wsdl11Definition.setPortTypeName("ExecuteTaskPort");
+        wsdl11Definition.setLocationUri("/ws");
+        wsdl11Definition.setTargetNamespace("http://ocsplatform.mobifone.vn");
+        wsdl11Definition.setSchema(executeTaskSchema);
+        return wsdl11Definition;
+    }
+
+    @Bean(name = "keep-alive")
+    public DefaultWsdl11Definition keepAliveWsdl11Definition(XsdSchema keepAliveSchema) {
+        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+        wsdl11Definition.setResponseSuffix("Res");
+        wsdl11Definition.setRequestSuffix("Req");
+        wsdl11Definition.setPortTypeName("KeepAlivePort");
+        wsdl11Definition.setLocationUri("/ws");
+        wsdl11Definition.setTargetNamespace("http://ocsplatform.mobifone.vn");
+        wsdl11Definition.setSchema(keepAliveSchema);
+        return wsdl11Definition;
+    }
+
     @Bean
     public XsdSchema loginSchema() {
         return new SimpleXsdSchema(new ClassPathResource("xsd/login.xsd"));
+    }
+
+    @Bean
+    public XsdSchema executeTaskSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("xsd/executeTask.xsd"));
+    }
+
+    @Bean
+    public XsdSchema keepAliveSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("xsd/keepAlive.xsd"));
     }
 
     @Bean

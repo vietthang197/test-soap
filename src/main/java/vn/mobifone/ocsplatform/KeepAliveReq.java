@@ -26,8 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="username" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="sessionIdKeep" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -38,22 +37,18 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "username",
-    "password"
+    "sessionIdKeep"
 })
-@XmlRootElement(name = "loginReq")
+@XmlRootElement(name = "keepAliveReq")
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2021-05-14T05:10:13+07:00", comments = "JAXB RI v2.3.2")
-public class LoginReq {
+public class KeepAliveReq {
 
     @XmlElement(required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2021-05-14T05:10:13+07:00", comments = "JAXB RI v2.3.2")
-    protected String username;
-    @XmlElement(required = true)
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2021-05-14T05:10:13+07:00", comments = "JAXB RI v2.3.2")
-    protected String password;
+    protected String sessionIdKeep;
 
     /**
-     * Gets the value of the username property.
+     * Gets the value of the sessionIdKeep property.
      * 
      * @return
      *     possible object is
@@ -61,12 +56,12 @@ public class LoginReq {
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2021-05-14T05:10:13+07:00", comments = "JAXB RI v2.3.2")
-    public String getUsername() {
-        return username;
+    public String getSessionIdKeep() {
+        return sessionIdKeep;
     }
 
     /**
-     * Sets the value of the username property.
+     * Sets the value of the sessionIdKeep property.
      * 
      * @param value
      *     allowed object is
@@ -74,34 +69,8 @@ public class LoginReq {
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2021-05-14T05:10:13+07:00", comments = "JAXB RI v2.3.2")
-    public void setUsername(String value) {
-        this.username = value;
-    }
-
-    /**
-     * Gets the value of the password property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2021-05-14T05:10:13+07:00", comments = "JAXB RI v2.3.2")
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * Sets the value of the password property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2021-05-14T05:10:13+07:00", comments = "JAXB RI v2.3.2")
-    public void setPassword(String value) {
-        this.password = value;
+    public void setSessionIdKeep(String value) {
+        this.sessionIdKeep = value;
     }
 
 }

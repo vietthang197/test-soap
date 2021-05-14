@@ -26,9 +26,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="responseStatus" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="sessionID" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="sessionStatusKeep" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="sessionId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -39,26 +38,22 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "responseStatus",
-    "description",
-    "sessionID"
+    "sessionStatusKeep",
+    "sessionId"
 })
-@XmlRootElement(name = "loginRes")
+@XmlRootElement(name = "keepAliveRes")
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2021-05-14T05:10:13+07:00", comments = "JAXB RI v2.3.2")
-public class LoginRes {
+public class KeepAliveRes {
 
     @XmlElement(required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2021-05-14T05:10:13+07:00", comments = "JAXB RI v2.3.2")
-    protected String responseStatus;
+    protected String sessionStatusKeep;
     @XmlElement(required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2021-05-14T05:10:13+07:00", comments = "JAXB RI v2.3.2")
-    protected String description;
-    @XmlElement(required = true)
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2021-05-14T05:10:13+07:00", comments = "JAXB RI v2.3.2")
-    protected String sessionID;
+    protected String sessionId;
 
     /**
-     * Gets the value of the responseStatus property.
+     * Gets the value of the sessionStatusKeep property.
      * 
      * @return
      *     possible object is
@@ -66,12 +61,12 @@ public class LoginRes {
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2021-05-14T05:10:13+07:00", comments = "JAXB RI v2.3.2")
-    public String getResponseStatus() {
-        return responseStatus;
+    public String getSessionStatusKeep() {
+        return sessionStatusKeep;
     }
 
     /**
-     * Sets the value of the responseStatus property.
+     * Sets the value of the sessionStatusKeep property.
      * 
      * @param value
      *     allowed object is
@@ -79,12 +74,12 @@ public class LoginRes {
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2021-05-14T05:10:13+07:00", comments = "JAXB RI v2.3.2")
-    public void setResponseStatus(String value) {
-        this.responseStatus = value;
+    public void setSessionStatusKeep(String value) {
+        this.sessionStatusKeep = value;
     }
 
     /**
-     * Gets the value of the description property.
+     * Gets the value of the sessionId property.
      * 
      * @return
      *     possible object is
@@ -92,12 +87,12 @@ public class LoginRes {
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2021-05-14T05:10:13+07:00", comments = "JAXB RI v2.3.2")
-    public String getDescription() {
-        return description;
+    public String getSessionId() {
+        return sessionId;
     }
 
     /**
-     * Sets the value of the description property.
+     * Sets the value of the sessionId property.
      * 
      * @param value
      *     allowed object is
@@ -105,34 +100,8 @@ public class LoginRes {
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2021-05-14T05:10:13+07:00", comments = "JAXB RI v2.3.2")
-    public void setDescription(String value) {
-        this.description = value;
-    }
-
-    /**
-     * Gets the value of the sessionID property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2021-05-14T05:10:13+07:00", comments = "JAXB RI v2.3.2")
-    public String getSessionID() {
-        return sessionID;
-    }
-
-    /**
-     * Sets the value of the sessionID property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2021-05-14T05:10:13+07:00", comments = "JAXB RI v2.3.2")
-    public void setSessionID(String value) {
-        this.sessionID = value;
+    public void setSessionId(String value) {
+        this.sessionId = value;
     }
 
 }
