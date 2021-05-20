@@ -6,31 +6,30 @@ import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+import vn.mobifone.ocsplatform.DebitRequest;
+import vn.mobifone.ocsplatform.DebitResponse;
 import vn.mobifone.ocsplatform.ExecuteTaskRequest;
 import vn.mobifone.ocsplatform.ExecuteTaskResponse;
 
 import java.io.IOException;
 
 /**
- * @author thanglv on 5/14/2021
+ * @author thanglv on 5/20/2021
  * @project test-soap
  */
+
 @Endpoint
-public class ExecuteTaskEndpoint extends BaseEndpoint {
+public class DebitEndpoint {
 
-    @Autowired
-    private TestService testService;
-
-    @PayloadRoot(namespace = "http://alcatel-lucent.com/esm/ws/svcmgr/V2_0", localPart = "ExecuteTaskRequest")
+    @PayloadRoot(namespace = "http://alcatel-lucent.com/esm/ws/svcmgr/V2_0", localPart = "DebitRequest")
     @ResponsePayload
-    public ExecuteTaskResponse executeTask(@RequestPayload ExecuteTaskRequest executeTaskRequest) throws IOException, InterruptedException {
+    public DebitResponse debitTask(@RequestPayload DebitRequest debitRequest) throws IOException, InterruptedException {
 //        System.out.println("REQUEST EXECUTE TASK");
-        ExecuteTaskResponse executeTaskRes = new ExecuteTaskResponse();
+        DebitResponse debitResponse = new DebitResponse();
 //        boolean isSessionValid = testService.isSessionValid(executeTaskReq.getSessionId());
 //        executeTaskRes.setSessionStatus(isSessionValid ? "SUCCESS REQUEST" : "FAILED REQUEST");
-        Thread.sleep(1000);
-        executeTaskRes.setResultMessage(executeTaskRequest.getSessionId());
-        executeTaskRes.setSessionStatus("1");
-        return executeTaskRes;
+        debitResponse.setDescription("SUCCESS");
+        debitResponse.setResponseStatus("1");
+        return debitResponse;
     }
 }

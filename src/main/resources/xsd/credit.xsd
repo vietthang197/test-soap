@@ -1,0 +1,21 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://alcatel-lucent.com/esm/ws/svcmgr/V2_0">
+
+    <xs:element name="CreditRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="accountId" type="xs:string"/>
+                <xs:element name="balance" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="CreditResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="responseStatus" type="xs:string"/>
+                <xs:element name="description" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

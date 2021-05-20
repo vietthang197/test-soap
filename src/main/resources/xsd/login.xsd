@@ -1,7 +1,7 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:ns2="http://ocsplatform.mobifone.vn"
-           targetNamespace="http://ocsplatform.mobifone.vn">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://alcatel-lucent.com/esm/ws/svcmgr/V2_0">
 
-    <xs:element name="loginReq">
+    <xs:element name="LoginRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="username" type="xs:string"/>
@@ -10,7 +10,7 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="loginRes">
+    <xs:element name="LoginResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="responseStatus" type="xs:string"/>

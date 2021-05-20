@@ -7,8 +7,9 @@ import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
-import vn.mobifone.ocsplatform.LoginReq;
-import vn.mobifone.ocsplatform.LoginRes;
+import org.springframework.ws.soap.saaj.SaajSoapMessage;
+import vn.mobifone.ocsplatform.LoginRequest;
+import vn.mobifone.ocsplatform.LoginResponse;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -18,28 +19,37 @@ import java.util.UUID;
  * @project test-soap
  */
 
-//@Endpoint
-public class LoginEndpoint {
-//
-//    @Autowired
-//    private TestService testService;
-//
-//    @PayloadRoot(namespace = "http://ocsplatform.mobifone.vn", localPart = "loginReq")
-//    @ResponsePayload
-    public LoginRes login(@RequestPayload LoginReq loginReq, MessageContext messageContext) throws IOException {
-//        System.out.println("REQUEST GENERATE SESSIONID");
-//        LoginRes loginRes = new LoginRes();
-//
-//        String session = testService.genSession();
-//        if (session == null) {
-//            loginRes.setResponseStatus("0");
-//            loginRes.setDescription("MAX SESSION CREATED!");
-//        } else {
-//            loginRes.setResponseStatus("1");
-//            loginRes.setDescription("SUCCESS");
-//            loginRes.setSessionID(session);
-//        }
-//        return loginRes;
-        return null;
+@Endpoint
+public class LoginEndpoint extends BaseEndpoint {
+
+    @Autowired
+    private TestService testService;
+
+    @PayloadRoot(namespace = "http://alcatel-lucent.com/esm/ws/svcmgr/V2_0", localPart = "LoginRequest")
+    @ResponsePayload
+    public LoginResponse login(@RequestPayload LoginRequest loginRequest, MessageContext messageContext) throws IOException {
+        try {
+            System.out.println("REQUEST GENERATE SESSIONID");
+
+//            SaajSoapMessage saajSoapMessage = (SaajSoapMessage) messageContext.getResponse();
+//            alterSoapEnvelope(saajSoapMessage);
+
+            LoginResponse loginRes = new LoginResponse();
+
+            String session = testService.genSession();
+            if (session == null) {
+                loginRes.setResponseStatus("0");
+                loginRes.setDescription("MAX SESSION CREATED!");
+            } else {
+                loginRes.setResponseStatus("1");
+                loginRes.setDescription("SUCCESS");
+                loginRes.setSessionID(session);
+            }
+            return loginRes;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

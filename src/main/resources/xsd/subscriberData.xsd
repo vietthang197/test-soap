@@ -1,4 +1,6 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://alcatel-lucent.com/esm/ws/svcmgr/V2_0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://alcatel-lucent.com/esm/ws/svcmgr/V2_0">
+
     <xs:element name="RetrieveRequest">
         <xs:complexType>
             <xs:sequence>
@@ -27,7 +29,7 @@
                 <xs:element name="TaskList">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="Task">
+                            <xs:element name="Task" maxOccurs="unbounded" minOccurs="0">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element type="xs:string" name="Name"/>
@@ -69,7 +71,7 @@
                 <xs:element name="TaskResponseList">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="TaskResponse">
+                            <xs:element name="TaskResponse" maxOccurs="unbounded" minOccurs="0">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element type="xs:string" name="Name"/>
@@ -86,14 +88,14 @@
                                         <xs:element name="CollectionList">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element name="Collection">
+                                                    <xs:element name="Collection" maxOccurs="unbounded" minOccurs="0">
                                                         <xs:complexType>
                                                             <xs:sequence>
                                                                 <xs:element type="xs:string" name="CollectionName"/>
                                                                 <xs:element name="RecordList">
                                                                     <xs:complexType>
                                                                         <xs:sequence>
-                                                                            <xs:element name="ParamList">
+                                                                            <xs:element name="ParamList" maxOccurs="unbounded" minOccurs="0">
                                                                                 <xs:complexType>
                                                                                     <xs:sequence>
                                                                                         <xs:element name="Param" maxOccurs="unbounded" minOccurs="0">
