@@ -18,27 +18,28 @@ import java.util.UUID;
  * @project test-soap
  */
 
-@Endpoint
+//@Endpoint
 public class LoginEndpoint {
-
-    @Autowired
-    private TestService testService;
-
-    @PayloadRoot(namespace = "http://ocsplatform.mobifone.vn", localPart = "loginReq")
-    @ResponsePayload
+//
+//    @Autowired
+//    private TestService testService;
+//
+//    @PayloadRoot(namespace = "http://ocsplatform.mobifone.vn", localPart = "loginReq")
+//    @ResponsePayload
     public LoginRes login(@RequestPayload LoginReq loginReq, MessageContext messageContext) throws IOException {
-        System.out.println("REQUEST GENERATE SESSIONID");
-        LoginRes loginRes = new LoginRes();
-
-        String session = testService.genSession();
-        if (session == null) {
-            loginRes.setResponseStatus("0");
-            loginRes.setDescription("MAX SESSION CREATED!");
-        } else {
-            loginRes.setResponseStatus("1");
-            loginRes.setDescription("SUCCESS");
-            loginRes.setSessionID(session);
-        }
-        return loginRes;
+//        System.out.println("REQUEST GENERATE SESSIONID");
+//        LoginRes loginRes = new LoginRes();
+//
+//        String session = testService.genSession();
+//        if (session == null) {
+//            loginRes.setResponseStatus("0");
+//            loginRes.setDescription("MAX SESSION CREATED!");
+//        } else {
+//            loginRes.setResponseStatus("1");
+//            loginRes.setDescription("SUCCESS");
+//            loginRes.setSessionID(session);
+//        }
+//        return loginRes;
+        return null;
     }
 }

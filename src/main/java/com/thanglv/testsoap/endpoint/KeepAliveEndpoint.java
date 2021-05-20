@@ -17,24 +17,25 @@ import java.io.IOException;
  * @project test-soap
  */
 
-@Endpoint
+//@Endpoint
 public class KeepAliveEndpoint {
 
-    @Autowired
-    private TestService testService;
-
-    @PayloadRoot(namespace = "http://ocsplatform.mobifone.vn", localPart = "keepAliveReq")
-    @ResponsePayload
+//    @Autowired
+//    private TestService testService;
+//
+//    @PayloadRoot(namespace = "http://ocsplatform.mobifone.vn", localPart = "keepAliveReq")
+//    @ResponsePayload
     public KeepAliveRes keepAlive(@RequestPayload KeepAliveReq keepAliveReq, MessageContext messageContext) throws IOException, InterruptedException {
 //        System.out.println("REQUEST KEEP ALIVE SESSIONID");
-        KeepAliveRes keepAlivekRes = new KeepAliveRes();
-        boolean status = testService.keepAliveSession(keepAliveReq.getSessionIdKeep());
-        keepAlivekRes.setSessionId(keepAliveReq.getSessionIdKeep());
-        if (status) {
-            keepAlivekRes.setSessionStatusKeep("1");
-        } else {
-            keepAlivekRes.setSessionStatusKeep("0");
-        }
-        return keepAlivekRes;
+//        KeepAliveRes keepAlivekRes = new KeepAliveRes();
+//        boolean status = testService.keepAliveSession(keepAliveReq.getSessionIdKeep());
+//        keepAlivekRes.setSessionId(keepAliveReq.getSessionIdKeep());
+//        if (status) {
+//            keepAlivekRes.setSessionStatusKeep("1");
+//        } else {
+//            keepAlivekRes.setSessionStatusKeep("0");
+//        }
+//        return keepAlivekRes;
+        return null;
     }
 }
