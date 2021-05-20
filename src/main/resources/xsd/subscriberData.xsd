@@ -1,129 +1,128 @@
-<S:schema xmlns:S="http://www.w3.org/2001/XMLSchema" targetNamespace="http://alcatel-lucent.com/esm/ws/svcmgr/V2_0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://alcatel-lucent.com/esm/ws/svcmgr/V2_0">
+    <xs:element name="RetrieveRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="SessionInfo">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="sessionId"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="RequestInfo">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="ReqID"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="NERoutingInfo">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="NeGroupName"/>
+                            <xs:element type="xs:string" name="DistributionKey"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="TaskList">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Task">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="Name"/>
+                                        <xs:element name="QueryCriteria">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Param" maxOccurs="unbounded" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element type="xs:string" name="Name"/>
+                                                                <xs:element type="xs:string" name="Value"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
-    <S:element name="RetrieveRequest">
-        <S:complexType>
-            <S:sequence>
-                <S:element name="SessionInfo">
-                    <S:complexType>
-                        <S:sequence>
-                            <S:element type="S:string" name="sessionId"/>
-                        </S:sequence>
-                    </S:complexType>
-                </S:element>
-                <S:element name="RequestInfo">
-                    <S:complexType>
-                        <S:sequence>
-                            <S:element type="S:string" name="ReqID"/>
-                        </S:sequence>
-                    </S:complexType>
-                </S:element>
-                <S:element name="NERoutingInfo">
-                    <S:complexType>
-                        <S:sequence>
-                            <S:element type="S:string" name="NeGroupName"/>
-                            <S:element type="S:string" name="DistributionKey"/>
-                        </S:sequence>
-                    </S:complexType>
-                </S:element>
-                <S:element name="TaskList">
-                    <S:complexType>
-                        <S:sequence>
-                            <S:element name="Task">
-                                <S:complexType>
-                                    <S:sequence>
-                                        <S:element type="S:string" name="Name"/>
-                                        <S:element name="QueryCriteria">
-                                            <S:complexType>
-                                                <S:sequence>
-                                                    <S:element name="Param" maxOccurs="unbounded" minOccurs="0">
-                                                        <S:complexType>
-                                                            <S:sequence>
-                                                                <S:element type="S:string" name="Name"/>
-                                                                <S:element type="S:string" name="Value"/>
-                                                            </S:sequence>
-                                                        </S:complexType>
-                                                    </S:element>
-                                                </S:sequence>
-                                            </S:complexType>
-                                        </S:element>
-                                    </S:sequence>
-                                </S:complexType>
-                            </S:element>
-                        </S:sequence>
-                    </S:complexType>
-                </S:element>
-            </S:sequence>
-        </S:complexType>
-    </S:element>
-
-    <S:element name="RetrieveResponse">
-        <S:complexType>
-            <S:sequence>
-                <S:element name="RequestInfo">
-                    <S:complexType>
-                        <S:sequence>
-                            <S:element type="S:string" name="ReqID"/>
-                        </S:sequence>
-                    </S:complexType>
-                </S:element>
-                <S:element type="S:string" name="Result"/>
-                <S:element name="TaskResponseList">
-                    <S:complexType>
-                        <S:sequence>
-                            <S:element name="TaskResponse">
-                                <S:complexType>
-                                    <S:sequence>
-                                        <S:element type="S:string" name="Name"/>
-                                        <S:element type="S:string" name="Result"/>
-                                        <S:element name="ErrorInfo">
-                                            <S:complexType>
-                                                <S:sequence>
-                                                    <S:element type="S:int" name="ErrorCode"/>
-                                                    <S:element type="S:string" name="ErrorMsg"/>
-                                                    <S:element type="S:string" name="ErrorCategory"/>
-                                                </S:sequence>
-                                            </S:complexType>
-                                        </S:element>
-                                        <S:element name="CollectionList">
-                                            <S:complexType>
-                                                <S:sequence>
-                                                    <S:element name="Collection">
-                                                        <S:complexType>
-                                                            <S:sequence>
-                                                                <S:element type="S:string" name="CollectionName"/>
-                                                                <S:element name="RecordList">
-                                                                    <S:complexType>
-                                                                        <S:sequence>
-                                                                            <S:element name="ParamList">
-                                                                                <S:complexType>
-                                                                                    <S:sequence>
-                                                                                        <S:element name="Param" maxOccurs="unbounded" minOccurs="0">
-                                                                                            <S:complexType>
-                                                                                                <S:sequence>
-                                                                                                    <S:element type="S:string" name="Name"/>
-                                                                                                    <S:element type="S:string" name="Value"/>
-                                                                                                </S:sequence>
-                                                                                            </S:complexType>
-                                                                                        </S:element>
-                                                                                    </S:sequence>
-                                                                                </S:complexType>
-                                                                            </S:element>
-                                                                        </S:sequence>
-                                                                    </S:complexType>
-                                                                </S:element>
-                                                            </S:sequence>
-                                                        </S:complexType>
-                                                    </S:element>
-                                                </S:sequence>
-                                            </S:complexType>
-                                        </S:element>
-                                    </S:sequence>
-                                </S:complexType>
-                            </S:element>
-                        </S:sequence>
-                    </S:complexType>
-                </S:element>
-            </S:sequence>
-        </S:complexType>
-    </S:element>
-</S:schema>
+    <xs:element name="RetrieveResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="RequestInfo">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="ReqID"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element type="xs:string" name="Result"/>
+                <xs:element name="TaskResponseList">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="TaskResponse">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="Name"/>
+                                        <xs:element type="xs:string" name="Result"/>
+                                        <xs:element name="ErrorInfo">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element type="xs:int" name="ErrorCode"/>
+                                                    <xs:element type="xs:string" name="ErrorMsg"/>
+                                                    <xs:element type="xs:string" name="ErrorCategory"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="CollectionList">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Collection">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element type="xs:string" name="CollectionName"/>
+                                                                <xs:element name="RecordList">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="ParamList">
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:element name="Param" maxOccurs="unbounded" minOccurs="0">
+                                                                                            <xs:complexType>
+                                                                                                <xs:sequence>
+                                                                                                    <xs:element type="xs:string" name="Name"/>
+                                                                                                    <xs:element type="xs:string" name="Value"/>
+                                                                                                </xs:sequence>
+                                                                                            </xs:complexType>
+                                                                                        </xs:element>
+                                                                                    </xs:sequence>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
